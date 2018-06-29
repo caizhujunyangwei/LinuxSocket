@@ -17,9 +17,6 @@
 US_NS_MODULE;
 
 
-#define MSG_LENGTH		1024 * 5
-
-
 enum LEVEL
 {
 	Info   = 0x01,

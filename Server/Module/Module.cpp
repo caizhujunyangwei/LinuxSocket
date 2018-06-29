@@ -3,7 +3,8 @@
 NS_MODULE_BEGINE
 
 Module::Module()
-	:tag(0),runflag(false)
+	:tag(0),
+	runflag(false)
 {
 }
 

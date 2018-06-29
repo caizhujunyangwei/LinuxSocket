@@ -8,6 +8,8 @@
 **************************************************************************************/
 #define Server_Version		"0.0.0"
 
+#define MSG_LENGTH			1024 * 5 //Log消息长度
+
 //一些锁的定义
 #define Log_Lock			-100
 #define Lock_NUPool			-101
@@ -26,23 +28,6 @@
 
 #define ServerPort			6080
 #define MaxRecvNum			1000	//最大接受人数
-
-//套接字类型
-enum SOCKET_TYPE
-{
-	SOCKET_TYPE_NULL = 0x00,	//无
-	SOCKET_TYPE_CLIENT = 0x01,	//客户端
-	SOCKET_TYPE_SERVER = 0x02, //服务器
-};
-
-//连接套接字客户端状态
-enum SOCKET_STATE
-{
-	SOCKET_STATE_NULL = 0x00,	//无
-	SOCKET_STATE_CONNECTED = 0x01,	//连接成功正常状态
-	SOCKET_STATE_DISCONNECTED = 0x02, //离线状态
-	SOCKET_STATE_WAIT_FINISH = 0x04, //等待结束状态，没有什么可做的等待释放
-};
 
 //delete删除地址
 #define SAFE_DELETE(_TYPE_)															\

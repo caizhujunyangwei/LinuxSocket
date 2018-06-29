@@ -82,6 +82,7 @@ bool SocketControl::deleteSocket(SOCKET st)
 	//推入玩家
 	ModuleLock::setSpinLock(m_deleteLock, true);
 	this->m_deleteList.push_back(ns);
+	ns->setSocketState(SOCKET_STATE::SOCKET_STATE_WAIT_FINISH);
 	ModuleLock::setSpinLock(m_deleteLock, false);
 
 
@@ -105,6 +106,7 @@ bool SocketControl::deleteSocket(NUSocket * ns)
 	//推入玩家
 	ModuleLock::setSpinLock(m_deleteLock, true);
 	this->m_deleteList.push_back(ns);
+	ns->setSocketState(SOCKET_STATE::SOCKET_STATE_WAIT_FINISH);
 	ModuleLock::setSpinLock(m_deleteLock, false);
 
 	return true;
@@ -117,6 +119,7 @@ bool SocketControl::deleteAllSockets()
 	{
 		//推入玩家
 		this->m_deleteList.push_back(this->m_sockets[i]);
+		this->m_sockets[i]->setSocketState(SOCKET_STATE::SOCKET_STATE_WAIT_FINISH);
 	}
 	ModuleLock::setSpinLock(m_deleteLock, false);
 
